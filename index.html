@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Luxury Car Deals</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="musicControl" class="position-fixed top-0 end-0 m-3">
+    <button id="musicBtn" class="btn btn-warning btn-sm">🔊 Play Music</button>
+  </div>
+
+  <audio id="backgroundMusic" loop>
+    <source src="./music.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="container mt-5" id="loginPage">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card p-4 shadow">
+          <h3 class="text-center mb-3">Login</h3>
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" id="username" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" id="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5 d-none" id="productPage">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2>Today's Deals</h2>
+      <div>
+        <span class="me-3 text-success fw-bold" id="welcomeMsg"></span>
+        <button class="btn btn-warning me-2" id="cartBtn">
+          Cart (<span id="cartCount">0</span>)
+        </button>
+        <button class="btn btn-danger" id="logoutBtn">Log out</button>
+      </div>
+    </div>
+
+    <div class="row" id="productList"></div>
+  </div>
+
+  <div class="modal fade" id="detailsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="carName"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <img id="carImg" class="img-fluid rounded mb-3" alt="">
+          <p id="carDesc"></p>
+          <p><strong>Horsepower:</strong> <span id="carHP"></span></p>
+          <p><strong>Available Colors:</strong> <span id="carColors"></span></p>
+          <p><strong>Design:</strong> <span id="carDesign"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="cartModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Your Cart</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Car</th>
+                <th>Price</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="cartItems"></tbody>
+          </table>
+          <h5 class="text-end text-black">Total: $<span id="cartTotal">0</span></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
